@@ -50,3 +50,21 @@ public class Node<E> {
     	this.element = element;
     }//Node(.)
 }
+
+class TreeNode<E>{
+	E element;
+	TreeNode<E> left;
+	TreeNode<E> right;
+	
+	TreeNode(){
+		this.element = null;
+		this.left = null;
+		this.right = null;
+	}//TreeNode()
+	
+	TreeNode(E element){
+		this.element = element;
+		this.left = null;
+		this.right = null;
+	}// TreeNode(.)
+}//Tree node
