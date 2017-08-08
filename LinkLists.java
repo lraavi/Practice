@@ -84,6 +84,12 @@ public class LinkLists {
 		return mergeListHead;
 	}//merge(.,.)
 	
+	/***
+	 * The method reverses the given link list using an iterative approach.
+	 * 
+	 * @param head : The head of the link list to be reversed.
+	 * @return : The head of the reversed link list.
+	 */
 	public Node<Integer> reverseLinkList(Node<Integer> head) {
 		Node<Integer> newHead = null;
 		Node<Integer> previous = null;
@@ -98,7 +104,27 @@ public class LinkLists {
 		}//while
 		
 		return newHead;
-	}
+	}//reverseLinkList(.)
+	
+	/***
+	 * The method reverses the passed link list using a recursive approach.
+	 * 
+	 * @param head : The head of the link list to be reversed.
+	 * @return : The head of the reversed link list.
+	 */
+	public Node<Integer> reverseLinkListRecursive(Node<Integer> head){
+		if(head == null) {
+			return null;
+		}else if (head.next == null){
+			return head;
+		}else {
+			Node<Integer> newHead = reverseLinkListRecursive(head.next); 
+			Node<Integer> temp = head.next;
+			head.next = null;
+			temp.next = head;
+			return newHead;
+		}
+	}//reverseLinkListRecursive(.)
 	
 	
 	/***
@@ -125,13 +151,14 @@ public class LinkLists {
 		
 		LinkLists l = new LinkLists();
 		
-//		Node<Integer> head = l.reverseLinkList(head2);
- 		Node<Integer> head = l.merge_iterative(head1,head2);
-//		Node<Integer> head = l.merge_recursive(head1,head2);
+//		Node<Integer> tempHead = l.reverseLinkList(head1);
+//		Node<Integer> tempHead = l.reverseLinkListRecursive(head2);
+ 		Node<Integer> tempHead = l.merge_iterative(head1,head2);
+//		Node<Integer> tempHead = l.merge_recursive(head1,head2);
 		
-		while(head!=null) {
-			System.out.println(head.element);
-			head = head.next;
+		while(tempHead!=null) {
+			System.out.println(tempHead.element);
+			tempHead = tempHead.next;
 		}
 	}//main
 
